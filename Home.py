@@ -138,17 +138,14 @@ im2 = Image.open("logo_noBG.png")
 
 col1, col2 = st.columns([1.5,1])
 with col1:
-  st.title("Deeplearning Thermobarometer")
-  st.header("A deep learning model to predict temperatures and pressures of vulcanoes" )
+  st.title("GAIA")
+  st.header("Geo Artificial Intellingence Thermobarometry")
+  st.write("A deep learning model to predict temperatures and pressures of vulcanoes." )
   st.write("The model is based on [cit.] and use artificial neural networks to estimate the temperature and the pressure of the magma chambers by starting from the geochemical analysis of rocks. The project was born from the collaboration between the department of Physics and Astronomy and the Department of Earth Sciences of University of Florence. Please see the info page to more information. ")
 with col2:
   st.image(im2, width=350)
 
 
-#link_info = '[info](https://lorenzochicchi-deeplearning-thermobarometry-main-b2fjar.streamlit.app/info)'
-#st.markdown(f'<p style="color:#ffffff; font-size:40px;border-radius:2%;">{"Deeplearning Thermobarometer"}</p>', unsafe_allow_html=True)
-#st.markdown(f'<p style="color:#ffffff; font-size:28px;border-radius:2%;">{"A deep learning model to predict temperatures and pressures of vulcanoes"}</p>', unsafe_allow_html=True)
-#st.markdown(f'<p style="color:#ffffff; font-size:28px;border-radius:2%;">{"The model is based on [cit.] and use artificial neural networks to estimate the temperature and the pressure of the magma chambers by starting from the geochimical analysis of the rocks. Please see the info page to more information. "}</p>', unsafe_allow_html=True)
 
 st.markdown(f'<p style="font-size:30px;border-radius:2%;">{"Upload a .xlsx file with the structure specified in the info page (left menu) or download an empty form below:"}</p>', unsafe_allow_html=True)
 
@@ -212,7 +209,7 @@ if st.button('Starting prediction'):
   df_xlsx_pred = to_excel(df_output)
   st.download_button(label='Download data as xlsx!',
                                 data=df_xlsx_pred ,
-                                file_name= 'Empty_form.xlsx')
+                                file_name=  'Prediction_'+nametuple[0]+'.xlsx')
 
   st.write('Predicted values:')
   st.dataframe(df_output)
