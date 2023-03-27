@@ -1,0 +1,19 @@
+
+
+READ ME
+
+-
+
+Bootstrap_procedure.py is a file containing the code used to train models.
+
+-
+
+To test the, a "data.xlms" file is provided.
+The number of examples in the data is a small fraction of the examples used. paper
+
+-
+
+The results are saved in different directories depending on the target of the train procedure and the selected inputs.
+Destination directories have a name like: "mod_temperature_only_cpx", but this can be changed in code.
+
+
