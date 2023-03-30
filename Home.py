@@ -140,7 +140,7 @@ col1, col2 = st.columns([1.5,1])
 with col1:
   st.title("GAIA")
   st.header("Geo Artificial Intelligence Thermobarometry")
-  st.write("A deep learning model to predict temperatures and pressures of vulcanoes." )
+  st.write("A deep learning model to estimate temperatures and pressures of volcanoes starting from geochemical analysis." )
   st.write("The model is based on [cit.] and use artificial neural networks to estimate the temperature and the pressure of the magma chambers by starting from the geochemical analysis of rocks. The project was born from the collaboration between the department of Physics and Astronomy and the Department of Earth Sciences of University of Florence. Please see the info page to more information. ")
 with col2:
   st.image(im2, width=350)
