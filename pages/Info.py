@@ -72,7 +72,7 @@ with col1:
     im = Image.open("imgs/lorenzo.jpeg")
     st.image(im,use_column_width=True, caption= 'Lorenzo Chicci, Università degli Studi di Firenze, Dipartimento di Fisica e Astrofisica, INFN')
 with col2:
-    st.write("#")
+    #st.write("#")
     im = Image.open("imgs/luca.png")
     st.image(im,use_column_width=True, caption='Prof. Luca Bindi, Università degli Studi di Firenze, Dipartimento di Scienze della Terra')
 with col3:
