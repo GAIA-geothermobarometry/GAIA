@@ -147,14 +147,7 @@ with col2:
 
 
 
-st.markdown(f'<p style="font-size:30px;border-radius:2%;">{"Upload a .xlsx file with the structure specified in the info page (left menu) or download an empty form below:"}</p>', unsafe_allow_html=True)
-
-df_empy = pd.read_excel('pages/Form_input.xlsx') 
-df_xlsx = to_excel(df_empy)
-st.download_button(label='Download an empty form here!',
-                                data=df_xlsx ,
-                                file_name= 'Empty_form.xlsx')
-
+st.markdown(f'<p style="font-size:20px;border-radius:2%;">{"Upload a .xlsx file as specified in the info page (left menu)."}</p>', unsafe_allow_html=True)
 
 #set_png_as_page_bg('./imgs/Background.png')
 
