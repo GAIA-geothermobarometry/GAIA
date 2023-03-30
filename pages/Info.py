@@ -32,7 +32,7 @@ st.header("Istructions")
 st.write("Before using the deep learning model is necessary to make a calculation of clinopyroxene components and check on analysis quality as described in [].")
 df_calc = pd.read_excel('pages/Calculation.xlsx') 
 df_calc_xlsx = to_excel(df_calc)
-st.download_button(label='Download an empty form here!',
+st.download_button(label='Download the calculation file',
                                 data=df_calc_xlsx ,
                                 file_name= 'Calculation.xlsx')
 
