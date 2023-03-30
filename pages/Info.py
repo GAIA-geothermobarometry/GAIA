@@ -41,7 +41,7 @@ st.markdown("- **data input**: Clinopyroxene analyses. Input the analyses (paste
 st.markdown("- **calculation-1**:	Calculation of clinopyroxene formula based on 4 cations and Fe3+ on charge balance. Do use the fill down command from column A to column CR to perform the calculation on all the analyses")
 st.markdown("- **calculation-2**:	Calculation of clinopyroxene components. Do use the fill down command from column A to FF to perform the calculation on all the analyses")
 st.markdown("- **data output**: -	Do use the fill down command from column A to BV to perform the check on all the analyses")
-st.markdown("- **data sorting** -	Sorting of the analyses to be used in the Feedforward Neural Network clinopyroxene-only geoT-P. Copy and paste values from data output, sort the data according to column CA (true/false), and then paste the index, sample, and cpx components in the empty form file of the app (button below). Drag and drop the empty form in the Deeplearning app, run the app and then save and copy the results in columns F-I of the data sorting sheet")
+st.markdown("- **data sorting** -	Sorting of the analyses to be used in the Feedforward Neural Network clinopyroxene-only geoT-P. Copy and paste values from data output, sort the data according to column CA (true/false), and then paste the index, sample, and cpx components in the empty form file of the app (button below). Drag and drop the empty form in the Home page, run the app and then save and copy the results in columns F-I of the data sorting sheet")
 
 st.markdown('''
 <style>
