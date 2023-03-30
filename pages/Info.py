@@ -36,7 +36,7 @@ st.download_button(label='Download an empty form here!',
                                 data=df_calc_xlsx ,
                                 file_name= 'Calculation.xlsx')
 
-st.write("To carry out the processing it is necessary to download the ".xlsx" file with the botton above and follow the subsequent steps, each relating to a sheet of the file.")
+st.write("To carry out the processing it is necessary to download the Calculation.xlsx file with the botton above and follow the subsequent steps, each relating to a sheet of the file.")
 st.markdown("- data input: Clinopyroxene analyses. Input the analyses (paste special values) as indicated in the example (blank cell if the oxide has not been analysed or is below detection limit)")
 st.markdown("- calculation-1:	Calculation of clinopyroxene formula based on 4 cations and Fe3+ on charge balance. Do use the fill down command from column A to column CR to perform the calculation on all the analyses")
 st.markdown("- calculation-2:	Calculation of clinopyroxene components. Do use the fill down command from column A to FF to perform the calculation on all the analyses")
