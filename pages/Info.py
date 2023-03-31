@@ -5,6 +5,7 @@ from io import BytesIO
 from pyxlsb import open_workbook as open_xlsb
 import streamlit as st
 from PIL import Image
+import webbrowser
 
 def to_excel(df):
     output = BytesIO()
@@ -29,10 +30,22 @@ st.title("Info")
 
 st.header("Istructions")
 
+
+
+
+
+
+    
 st.write("Before using the deep learning model is necessary to make a calculation of clinopyroxene components and check on analysis quality as described in [].")
-df_calc = pd.read_excel('pages/Calculation.xlsx') 
-df_calc_xlsx = to_excel(df_calc)
-st.download_button(label='Download the calculation file',
+
+url = 'https://github.com/GAIA-geothermobarometry/GAIA/raw/main/pages/Calculation.xlsx'
+
+if st.button('Download the calculation file'):
+    webbrowser.open_new_tab(url)
+
+#df_calc = pd.read_excel('pages/Calculation.xlsx') 
+#df_calc_xlsx = to_excel(df_calc)
+#st.download_button(label='Download the calculation file',
                                 data=df_calc_xlsx ,
                                 file_name= 'Calculation.xlsx')
 
