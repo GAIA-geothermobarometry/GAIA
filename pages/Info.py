@@ -38,8 +38,7 @@ st.header("Istructions")
     
 st.write("Before using the deep learning model is necessary to make a calculation of clinopyroxene components and check on analysis quality as described in [].")
 
-url = 'https://github.com/GAIA-geothermobarometry/GAIA/raw/main/pages/Calculation.xlsx'
-
+url = 'https://github.com/GAIA-geothermobarometry/GAIA/raw/main/pages/Calculation.xlsx/'
 if st.button('Download the calculation file'):
     webbrowser.open_new_tab(url)
 
