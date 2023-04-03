@@ -1,8 +1,3 @@
-"""
-# My first app
-
-"""
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -128,7 +123,7 @@ def plothist(df_output):
 im = Image.open("logo_noBG.png")
 
 st.set_page_config(
-    page_title="Deep Thermobarometer",
+    page_title="GAIA - Home",
     page_icon=im,
     layout="wide"
 )
