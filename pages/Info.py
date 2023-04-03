@@ -54,9 +54,9 @@ st.write("Before using the deep learning model is necessary to make a calculatio
 #if st.button('Download the calculation file'):
  #   webbrowser.open_new_tab(url)
     
-#dic_cal = pd.read_excel('Review/LavoroEPSL/Calculation.xlsx', sheet_name=None)
-#df_calc_xlsx = to_excel_multi_sheet(dic_cal)
-#st.download_button(label='Download the calculation file', data=df_calc_xlsx , file_name= 'Calculation.xlsx')
+dic_cal = pd.read_excel('Review/LavoroEPSL/Calculation.xlsx', sheet_name=None)
+df_calc_xlsx = to_excel_multi_sheet(dic_cal)
+st.download_button(label='Download the calculation file', data=df_calc_xlsx , file_name= 'Calculation.xlsx')
 
 st.write("To carry out the processing it is necessary to download the Calculation.xlsx file with the botton above and follow the subsequent steps, each relating to a sheet of the file.")
 st.markdown("- **data input**: Clinopyroxene analyses. Input the analyses (paste special values) as indicated in the example (blank cell if the oxide has not been analysed or is below detection limit).")
