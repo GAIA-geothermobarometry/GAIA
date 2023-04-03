@@ -28,7 +28,7 @@ st.set_page_config(
 
 st.title("Info")
 
-st.header("Istructions")
+st.header("Instructions")
 
 
 
@@ -38,13 +38,13 @@ st.header("Istructions")
     
 st.write("Before using the deep learning model is necessary to make a calculation of clinopyroxene components and check on analysis quality as described in [].")
 
-url = 'https://github.com/GAIA-geothermobarometry/GAIA/raw/main/pages/Calculation.xlsx/'
-if st.button('Download the calculation file'):
-    webbrowser.open_new_tab(url)
+#url = 'https://github.com/GAIA-geothermobarometry/GAIA/raw/main/pages/Calculation.xlsx/'
+#if st.button('Download the calculation file'):
+ #   webbrowser.open_new_tab(url)
 
-#df_calc = pd.read_excel('pages/Calculation.xlsx') 
-#df_calc_xlsx = to_excel(df_calc)
-#st.download_button(label='Download the calculation file', data=df_calc_xlsx ,file_name= 'Calculation.xlsx')
+df_calc = pd.read_excel('pages/Calculation.xlsx') 
+df_calc_xlsx = to_excel(df_calc)
+st.download_button(label='Download the calculation file', data=df_calc_xlsx ,file_name= 'Calculation.xlsx')
 
 st.write("To carry out the processing it is necessary to download the Calculation.xlsx file with the botton above and follow the subsequent steps, each relating to a sheet of the file.")
 st.markdown("- **data input**: Clinopyroxene analyses. Input the analyses (paste special values) as indicated in the example (blank cell if the oxide has not been analysed or is below detection limit).")
