@@ -29,8 +29,8 @@ def to_excel(df):
     df.to_excel(writer, index=False, sheet_name='Sheet1')
     workbook = writer.book
     worksheet = writer.sheets['Sheet1']
-    #format1 = workbook.add_format({'num_format': '0.00'}) 
-    #worksheet.set_column('A:A', None, format1)  
+    format1 = workbook.add_format({'num_format': '0.00'}) 
+    worksheet.set_column('A:A', None, format1)  
     writer.save()
     processed_data = output.getvalue()
     return processed_data
@@ -49,10 +49,6 @@ st.header("Instructions")
 
     
 st.write("Before using the deep learning model is necessary to make a calculation of clinopyroxene components and check on analysis quality as described in [].")
-
-#url = 'https://github.com/GAIA-geothermobarometry/GAIA/raw/main/pages/Calculation.xlsx/'
-#if st.button('Download the calculation file'):
- #   webbrowser.open_new_tab(url)
     
 dic_cal = pd.read_excel('pages/Calculation.xlsx', sheet_name=None)
 df_calc_xlsx = to_excel_multi_sheet(dic_cal)
@@ -73,10 +69,10 @@ st.markdown('''
 </style>
 ''', unsafe_allow_html=True)
 
-#df_empy = pd.read_excel('pages/Form_input.xlsx') 
-#df_xlsx = to_excel(df_empy)
+df_empy = pd.read_excel('pages/Form_input.xlsx') 
+df_xlsx = to_excel(df_empy)
 st.download_button(label='Download an empty form here!',
-                                data='pages/Form_input.xlsx',#df_xlsx ,
+                                data= df_xlsx ,
                                 file_name= 'Empty_form.xlsx')
 
 
