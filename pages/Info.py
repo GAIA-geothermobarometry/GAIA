@@ -37,7 +37,7 @@ def to_excel(df):
 
 im = Image.open("logo_noBG.png")
 st.set_page_config(
-    page_title="Gaia - Info",
+    page_title="GAIA - Info",
     page_icon=im,
     layout="wide"
 )
