@@ -7,6 +7,22 @@ import streamlit as st
 from PIL import Image
 import webbrowser
 
+
+def to_excel_multi_sheet(dic_cal):
+    output = BytesIO()
+    writer = pd.ExcelWriter(output, engine='xlsxwriter')
+    
+    for key in dic_cal:   
+        df[key].to_excel(writer, index=False, sheet_name=key)
+    #workbook = writer.book
+    #worksheet = writer.sheets['Sheet1']
+    #format1 = workbook.add_format({'num_format': '0.00'}) 
+    #worksheet.set_column('A:A', None, format1)  
+    writer.save()
+    processed_data = output.getvalue()
+    return processed_data
+
+
 def to_excel(df):
     output = BytesIO()
     writer = pd.ExcelWriter(output, engine='xlsxwriter')
@@ -37,18 +53,10 @@ st.write("Before using the deep learning model is necessary to make a calculatio
 #url = 'https://github.com/GAIA-geothermobarometry/GAIA/raw/main/pages/Calculation.xlsx/'
 #if st.button('Download the calculation file'):
  #   webbrowser.open_new_tab(url)
-
-workbook = openpyxl.load_workbook('pages/Calculation.xlsx')
-st.download_button(
-    label='Download the calculation file',
-    data=workbook,
-    file_name="workbook.xlsx",
-    mime="application/vnd.ms-excel"
-)
     
-#df_calc = pd.read_excel('pages/Calculation.xlsx') 
-#df_calc_xlsx = to_excel(df_calc)
-#st.download_button(label='Download the calculation file', data=df_calc_xlsx ,file_name= 'Calculation.xlsx')
+#dic_cal = pd.read_excel('Review/LavoroEPSL/Calculation.xlsx', sheet_name=None)
+#df_calc_xlsx = to_excel_multi_sheet(dic_cal)
+#st.download_button(label='Download the calculation file', data=df_calc_xlsx , file_name= 'Calculation.xlsx')
 
 st.write("To carry out the processing it is necessary to download the Calculation.xlsx file with the botton above and follow the subsequent steps, each relating to a sheet of the file.")
 st.markdown("- **data input**: Clinopyroxene analyses. Input the analyses (paste special values) as indicated in the example (blank cell if the oxide has not been analysed or is below detection limit).")
