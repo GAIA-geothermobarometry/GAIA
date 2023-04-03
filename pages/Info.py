@@ -31,10 +31,6 @@ st.title("Info")
 st.header("Instructions")
 
 
-
-
-
-
     
 st.write("Before using the deep learning model is necessary to make a calculation of clinopyroxene components and check on analysis quality as described in [].")
 
@@ -42,11 +38,10 @@ st.write("Before using the deep learning model is necessary to make a calculatio
 #if st.button('Download the calculation file'):
  #   webbrowser.open_new_tab(url)
 
-output = BytesIO()
 workbook = openpyxl.load_workbook('pages/Calculation.xlsx')
 st.download_button(
     label='Download the calculation file',
-    data=output.getvalue(),
+    data=workbook,
     file_name="workbook.xlsx",
     mime="application/vnd.ms-excel"
 )
