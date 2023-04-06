@@ -95,7 +95,7 @@ def preprocessing(df):
     T = df_T.copy()
 
     colcomp = ['CaTiAl2O6', 'CaTs', 'Es', 'CaCrTs', 'NaCrSi2O6', 'Jd', 'Ae', 'Di', 'Hd', 'En(Mg+Ni)', 'Fs(Fe+Mn)']
-    df_comp = pd.DataFrame(columns=colcomp, index=df.index)
+    df_comp = pd.DataFrame(columns=['Index', 'sample', 'notes', 'notes.1'] + colcomp, index=df.index)
 
     # computation of first component ('CaTiAl2O6')
 
