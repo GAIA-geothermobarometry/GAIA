@@ -163,7 +163,7 @@ if st.button('Preprocess data'):
     st.markdown(
         f'<p style="font-size:20px;border-radius:2%;">{"Preprocessed components:."}</p>',
         unsafe_allow_html=True)
-    comp = data['components']
+    comp = data['components'].copy()
     comp['Sum'] = data['sum_of_components']
     st.dataframe(comp)
 
