@@ -34,7 +34,7 @@ def to_excel_multi_sheet(dic_cal):
     processed_data = output.getvalue()
     return processed_data
 
-def predict(data):
+def predict(data):    
     for tg in [0, 1]:
         if tg == 0:
             directory = 'Pressure_models'
@@ -45,8 +45,14 @@ def predict(data):
         target = targets[tg]
         names_targets = ['pressure', 'temperature']
         names_target = names_targets[tg]
-
         sect = 'only_cpx'
+        
+        # Add a placeholder
+        latest_iteration = st.empty()
+        st.write('Predicting' + names_targets)
+        bar = st.progress(0)
+        
+            
 
         with open(directory + '/mod_' + names_target + '_' + sect + '/Global_variable.pickle', 'rb') as handle:
             g = pickle.load(handle)
@@ -64,7 +70,13 @@ def predict(data):
 
         results = np.zeros((len(df_noindex), N))
         for e in range(N):
-            print(e)
+            
+            #update bar
+            latest_iteration.text(f'Iteration {i + 1}')
+            bar.progress(i + 1)
+            time.sleep(0.1)
+            
+            #load modell
             model = tf.keras.models.load_model(
                 directory + "/mod_" + names_target + '_' + sect + "/Bootstrap_model_" + str(e) + '.h5')
             results[:, e] = model(df_noindex.values.astype('float32')).numpy().reshape((len(df_noindex),))
