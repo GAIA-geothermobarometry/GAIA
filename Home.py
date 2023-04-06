@@ -135,9 +135,20 @@ with col1:
 with col2:
     st.image(im2, width=350)
 
-st.markdown(
-    f'<p style="font-size:20px;border-radius:2%;">{"Upload a .xlsx file as specified in the info page (left menu)."}</p>',
-    unsafe_allow_html=True)
+st.header("Instructions:")
+st.markdown("The structure of the file to be used as an input must be like the following:)           
+input_example =  pd.read_excel('files/input_example.xlsx')
+st.table('input_example')
+
+st.markdown("The columns ***Index***, ***sample***, ***notes*** and ***notes*** can be used to identify the samples.")
+st.markdown("The columns, ***SiO2***, ***TiO2***, ***Al2O3***, ***Cr2O3***,***FeO tot***,***MnO***,***NiO***, ***MgO***, ***CaO***, ***Na2O*** and ***K2O*** \
+             must be filled with the analyses.")
+            
+            
+df_input_sheet = pd.read_excel('files/input_sheet.xlsx', sheet_name=None)
+df_input_sheet_xlsx = to_excel(df_input_sheet)
+st.download_button(label='Download the input file form', data=df_input_sheet_xlsx , file_name= 'input_sheet.xlsx')
+
 
 # set_png_as_page_bg('./imgs/Background.png')
 
