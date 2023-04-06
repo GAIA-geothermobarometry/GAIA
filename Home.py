@@ -188,7 +188,7 @@ if st.button('Starting prediction'):
   #    mime='application/vnd.ms-excel'
   #)
   reset = 0
-  while reset = 0:
+  while reset == 0:
       st.download_button(
           label="Download data as csv!",
           data=csv,
