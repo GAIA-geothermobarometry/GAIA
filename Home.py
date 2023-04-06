@@ -101,7 +101,7 @@ def set_png_as_page_bg(png_file):
 
 
 def plothist(df_output):
-    targets = ['P (kbar)', 'T (K)']
+    targets = ['P (kbar)', 'T (C)']
     col = ['tab:green', 'tab:red']
     titles = ['P distribution', 'T distribution']
     fig, ax = plt.subplots(1, 2, figsize=(8, 6))
