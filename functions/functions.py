@@ -71,8 +71,8 @@ def predict(data):
         for e in range(N):
             
             #update bar
-            latest_iteration.text(f'Iteration {i + 1}')
-            bar.progress(i + 1)
+            latest_iteration.text(f'Iteration {e + 1}')
+            bar.progress(e + 1)
             time.sleep(0.1)
             
             #load modell
