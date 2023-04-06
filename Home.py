@@ -137,14 +137,16 @@ with col1:
 with col2:
     st.image(im2, width=350)
 
+    ## INSTRUCTION PART ##
+
 st.header("Instructions:")
 st.markdown("The structure of the file to be used as an input must be like the following:")           
 input_example =  pd.read_excel('files/input_example.xlsx')
 st.dataframe(input_example)
 
 st.markdown("The columns ***Index***, ***sample***, ***notes*** and ***notes*** can be used to identify the samples.\
-            The columns, ***SiO2***, ***TiO2***, ***Al2O3***, ***Cr2O3***,***FeO tot***,***MnO***,***NiO***, ***MgO***, ***CaO***, ***Na2O***, ***K2O*** and ***tot** \
-            must be filled with the oxides analyses. If the oxide has not been analysed or is below detection limit the cell can be leave blank or set to zero. \
+            The columns, ***SiO2***, ***TiO2***, ***Al2O3***, ***Cr2O3***,***FeO tot***,***MnO***,***NiO***, ***MgO***, ***CaO***, ***Na2O***, ***K2O*** and ***tot*** \
+            must be filled with the oxides analyses. If the oxide has not been analysed or is below detection limit the corresponding cell can be leave blank or set to zero. \
             The same can be done if the total has not been calculated.")
             
 st.markdown("An empty file with the right structure can be downloaded by using the button below.")
@@ -155,7 +157,11 @@ df_input_sheet_xlsx = to_excel(df_input_sheet)
 st.download_button(label='Download the input file form', data=df_input_sheet_xlsx , file_name= 'input_sheet.xlsx')
 
 
+    ## PROCESSING PART ##
+
 # set_png_as_page_bg('./imgs/Background.png')
+
+st.markdown("Upload a file with the structure as specified above:")
 
 uploaded_file = st.file_uploader("Choose a file")
 
