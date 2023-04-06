@@ -139,7 +139,7 @@ with col2:
 
     ## INSTRUCTION PART ##
 
-st.header("Instructions:")
+st.header("Instructions")
 st.markdown("The structure of the file to be used as an input must be like the following:")           
 input_example =  pd.read_excel('files/input_example.xlsx')
 st.dataframe(input_example)
@@ -158,8 +158,8 @@ st.download_button(label='Download the input file form', data=df_input_sheet_xls
 
 
     ## PROCESSING PART ##
-
-# set_png_as_page_bg('./imgs/Background.png')
+    
+st.header("Processing")
 
 st.markdown("Upload a file with the structure as specified above:")
 
