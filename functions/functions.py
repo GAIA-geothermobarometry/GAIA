@@ -72,7 +72,7 @@ def predict(data):
             
             #update bar
             latest_iteration.text(f'Applying model n°{e + 1}')
-            bar.progress(int(e/N*100) + 1)
+            bar.progress(int(e/(N-1)*100) + 1)
             time.sleep(0.1)
             
             #load modell
@@ -83,8 +83,13 @@ def predict(data):
         results = results * array_max[0]
 
         df_output[index_col] = data[index_col]
-        df_output['mean - ' + target] = results.mean(axis=1).round(np.mod(tg+1,2))
-        df_output['std - ' + target] = results.std(axis=1).round(np.mod(tg+1,2))
+        mean =  results.mean(axis=1).round(np.mod(tg+1,2))
+        std = results.std(axis=1).round(np.mod(tg+1,2))
+        if tg == 1:
+            mean = mean.astype('int')
+            std = std.astype('int')
+        df_output['mean - ' + target] = mean
+        df_output['std - ' + target] = std
     return df_output
 
 
