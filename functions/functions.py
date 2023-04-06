@@ -83,8 +83,8 @@ def predict(data):
         results = results * array_max[0]
 
         df_output[index_col] = data[index_col]
-        df_output['mean - ' + target] = results.mean(axis=1)
-        df_output['std - ' + target] = results.std(axis=1)
+        df_output['mean - ' + target] = round(results.mean(axis=1),np.mod(tg+1,2))
+        df_output['std - ' + target] = round(results.std(axis=1),np.mod(tg+1,2))
     return df_output
 
 
