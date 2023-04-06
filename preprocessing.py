@@ -13,13 +13,13 @@ def preprocessing(df):
     # molecular weight
     mw = {'SiO2': 60.084, 'TiO2': 79.900, 'Al2O3': 101.960, 'Cr2O3': 151.990, 'FeO': 71.846, 'MnO': 70.937,
           'NiO': 74.699, 'MgO': 40.304, 'CaO': 56.079, 'Na2O': 61.979, 'K2O': 94.196, 'Fe2O3': 159.69}
-    mw = np.array(list(mw.values()))
+    mw_arr = np.array(list(mw.values()))
 
     # moles of oxides
     mole_ox = np.array([1, 1, 2, 2, 1, 1, 1, 1, 1, 2, 2])
 
     # compute the correction factor and multiply by it
-    df_1[df.columns[4:-1]] = df[df.columns[4:-1]] / mw[:-1] * mole_ox
+    df_1[df.columns[4:-1]] = df[df.columns[4:-1]] / mw_arr[:-1] * mole_ox
     corr_fact = 4 / df_1[df.columns[4:-1]].sum(axis=1)
     df_1[df.columns[4:-1]] = df_1[df.columns[4:-1]].multiply(corr_fact, axis=0)
 
