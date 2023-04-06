@@ -29,61 +29,40 @@ def to_excel(df):
 
 
 def predict(data):
-    control = 0
-    if len(data.columns) == 13:
-        im_s = 0
-    elif len(data.cilumns) == 24:
-        im_s = 1
-    else:
-        print("Number of  dataset columns not allowed")
-        control = 1
-        return None
+    for tg in [0, 1]:
+        if tg == 0:
+            directory = 'Pressure_models'
+        else:
+            directory = 'Temperature_models'
+        targets = ['P (kbar)', 'T (C)']
+        target = targets[tg]
+        names_targets = ['pressure', 'temperature']
+        names_target = names_targets[tg]
+        sect = 'only_cpx'
+        
+        with open(directory + '/mod_' + names_target + '_' + sect + '/Global_variable.pickle', 'rb') as handle:
+            g = pickle.load(handle)
+        N = g['N']
+        array_max = g['array_max']
 
-    if control == 0:
+        if tg == 0:
+            df_output = pd.DataFrame(
+                columns=index_col[:] + ['mean - ' + targets[0], 'std - ' + targets[0], 'mean - ' + targets[1],
+                                        'std - ' + targets[1]])
 
-        for tg in [0, 1]:
+        results = np.zeros((len(df1), N))
+        for e in range(N):
+            print(e)
+            model = tf.keras.models.load_model(
+                directory + "/mod_" + names_target + '_' + sect + "/Bootstrap_model_" + str(e) + '.h5')
+            results[:, e] = model(df1.values.astype('float32')).numpy().reshape((len(df1),))
 
-            if tg == 0:
-                directory = 'Pressure_models'
-            else:
-                directory = 'Temperature_models'
+        results = results * array_max[0]
 
-            targets = ['P (kbar)', 'T (K)']
-            target = targets[tg]
-            names_targets = ['pressure', 'temperature']
-            names_target = names_targets[tg]
-
-            input_sections = ['only_cpx', 'cpx_and_liq']
-            sect = input_sections[im_s]
-
-            with open(directory + '/mod_' + names_target + '_' + sect + '/Global_variable.pickle', 'rb') as handle:
-                g = pickle.load(handle)
-            N = g['N']
-            array_max = g['array_max']
-
-            col = data.columns
-            index_col = [col[i] for i in range(0, 2)]
-            df1 = data.drop(columns=index_col)
-
-            if tg == 0:
-                df_output = pd.DataFrame(
-                    columns=index_col[:] + ['mean - ' + targets[0], 'std - ' + targets[0], 'mean - ' + targets[1],
-                                            'std - ' + targets[1]])
-
-            results = np.zeros((len(df1), N))
-            for e in range(N):
-                print(e)
-                model = tf.keras.models.load_model(
-                    directory + "/mod_" + names_target + '_' + sect + "/Bootstrap_model_" + str(e) + '.h5')
-                results[:, e] = model(df1.values.astype('float32')).numpy().reshape((len(df1),))
-
-            results = results * array_max[0]
-
-            df_output[index_col] = df[index_col]
-            df_output['mean - ' + target] = results.mean(axis=1)
-            df_output['std - ' + target] = results.std(axis=1)
+        df_output[index_col] = df[index_col]
+        df_output['mean - ' + target] = results.mean(axis=1)
+        df_output['std - ' + target] = results.std(axis=1)
     return df_output
-
 
 
 
