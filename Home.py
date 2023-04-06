@@ -176,10 +176,7 @@ if st.button('Preprocess data'):
     df_output = predict(components_input)
     
     colcomp = data['components'].columns[4:]
-    df_output.loc[data['check']['cpx_selection']==False, colcomp] =0
-    
-              
-              
+    df_output.loc[data['check']['cpx_selection']==False, colcomp] ='n.c.'  # not computable samples (check not passed)
     
 
     # Add a placeholder
@@ -190,10 +187,7 @@ if st.button('Preprocess data'):
         latest_iteration.text(f'Iteration {i + 1}')
         bar.progress(i + 1)
         time.sleep(0.1)
-
-    
-        
-        
+      
         
     csv = convert_df(df_output)
     st.download_button(
