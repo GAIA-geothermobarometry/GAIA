@@ -87,13 +87,13 @@ if uploaded_file is not None:
 if st.button('Preprocess data and make predictions'):
     data = preprocessing(df)
     st.markdown(
-        f'<p style="font-size:20px;border-radius:2%;">{"Preprocessed components:."}</p>',
+        f'<p style="font-size:20px;border-radius:2%;">{"Preprocessed components:"}</p>',
         unsafe_allow_html=True)
     comp = data['components'].copy()
     comp['Sum'] = data['sum_of_components']
     st.dataframe(comp)
     st.markdown(
-    f'<p style="font-size:20px;border-radius:2%;">{"predictions in progress..."}</p>',
+    f'<p style="font-size:20px;border-radius:2%;">{"Predictions in progress..."}</p>',
     unsafe_allow_html=True) 
     
     # predict and show results
@@ -107,7 +107,7 @@ if st.button('Preprocess data and make predictions'):
 
     # create multi sheet file
     dictionary_output = {'Predictions':df_output, 'Cations': data['cations'], 'T site': data['site_T'],\
-                         'M1 and M2 site': data['site_M1&M2'],'Classifications':data['classifications'] ,\
+                         'M1 and M2 site': data['site_M1&2'],'Classifications':data['classifications'] ,\
                          'Components': comp }
     df_summary_output_xlsx = to_excel_multi_sheet(dictionary_output)
     st.download_button(label='Download the output file', data=df_summary_output_xlsx , file_name= 'Prediction_' + nametuple[0] + '.xlsx')
