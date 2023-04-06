@@ -49,11 +49,10 @@ def predict(data):
         
         # Add a placeholder
         latest_iteration = st.empty()
-        st.write('Predicting' + names_targets)
+        st.write('Predicting' + names_target)
         bar = st.progress(0)
         
-            
-
+        #load global variable          
         with open(directory + '/mod_' + names_target + '_' + sect + '/Global_variable.pickle', 'rb') as handle:
             g = pickle.load(handle)
         N = g['N']
