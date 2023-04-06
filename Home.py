@@ -84,7 +84,7 @@ if uploaded_file is not None:
     else:
         st.warning("File type wrong (you need to upload a csv, xls or xlsx file)")
 
-if st.button('Preprocess data'):
+if st.button('Preprocess data and make predictions'):
     data = preprocessing(df)
     st.markdown(
         f'<p style="font-size:20px;border-radius:2%;">{"Preprocessed components:."}</p>',
@@ -104,29 +104,26 @@ if st.button('Preprocess data'):
     st.write('Predicted values:')
     st.dataframe(df_output)
     
-    
-    # Add a placeholder
-    
-    latest_iteration = st.empty()
-    bar = st.progress(0)
-    for i in range(100):
-        # Update the progress bar with each iteration.
-        latest_iteration.text(f'Iteration {i + 1}')
-        bar.progress(i + 1)
-        time.sleep(0.1)
-      
+
+    # create multi sheet file
+    dictionary_output = {'Predictions':df_output, 'Cations': data['cations'], 'T site': data['site_T'],\
+                         'M1 and M2 site': data['siete_M1&M2'],'Classifications':data['classifications'] ,\
+                         'Components': comp 
+    df_summary_output_xlsx = to_excel_multi_sheet(dictionary_output)
+    st.download_button(label='Download the output file', data=df_summary_output_xlsx , file_name= 'Prediction_' + nametuple[0] + '.xlsx')
+  
         
-    csv = convert_df(df_output)
-    st.download_button(
-        label="Download data as csv!",
-        data=csv,
-        file_name='Prediction_' + nametuple[0] + '.csv',
-        mime='text/csv',
-    )
-    df_xlsx_pred = to_excel(df_output)
-    st.download_button(label='Download data as xlsx!',
-                       data=df_xlsx_pred,
-                       file_name='Prediction_' + nametuple[0] + '.xlsx')
+    #csv = convert_df(df_output)
+    #st.download_button(
+    #    label="Download prediction as csv!",
+    #    data=csv,
+    #    file_name='Prediction_' + nametuple[0] + '.csv',
+    #    mime='text/csv',
+    #)                    
+    #df_xlsx_pred = to_excel(df_output)
+    #st.download_button(label='Download data as xlsx!',
+    #                   data=df_xlsx_pred,
+    #                   file_name='Prediction_' + nametuple[0] + '.xlsx')
 
     
     
