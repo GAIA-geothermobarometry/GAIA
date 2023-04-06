@@ -199,10 +199,12 @@ if st.button('Preprocess data'):
                        data=df_xlsx_pred,
                        file_name='Prediction_' + nametuple[0] + '.xlsx')
 
+    
     st.write('Predicted values:')
     st.dataframe(df_output)
+    
     col1, col2 = st.columns(2)
     with col1:
-        plothist(df_output)
+        plothist(df_output.loc[data['checks']['cpx_selection']])
 
 
