@@ -167,44 +167,44 @@ if st.button('Preprocess data'):
     comp['Sum'] = data['sum_of_components']
     st.dataframe(comp)
 
-if st.button('Starting prediction'):
-    df_output = predict(data['components'])
+    if st.button('Starting prediction'):
+        df_output = predict(data['components'])
 
-    # Add a placeholder
-    latest_iteration = st.empty()
-    bar = st.progress(0)
-    for i in range(100):
-        # Update the progress bar with each iteration.
-        latest_iteration.text(f'Iteration {i + 1}')
-        bar.progress(i + 1)
-        time.sleep(0.1)
+        # Add a placeholder
+        latest_iteration = st.empty()
+        bar = st.progress(0)
+        for i in range(100):
+            # Update the progress bar with each iteration.
+            latest_iteration.text(f'Iteration {i + 1}')
+            bar.progress(i + 1)
+            time.sleep(0.1)
 
-    csv = convert_df(df_output)
-    # towrite = io.BytesIO()
-    # excel = df.to_excel(towrite, encoding='utf-8', index=False, header=True)
+        csv = convert_df(df_output)
+        # towrite = io.BytesIO()
+        # excel = df.to_excel(towrite, encoding='utf-8', index=False, header=True)
 
-    # st.download_button(
-    #    label="Download data as xlsx",
-    #    data=excel,
-    #    file_name= 'Prediction'+nametuple[0]+'.xlsx',
-    #    mime='application/vnd.ms-excel'
-    # )
+        # st.download_button(
+        #    label="Download data as xlsx",
+        #    data=excel,
+        #    file_name= 'Prediction'+nametuple[0]+'.xlsx',
+        #    mime='application/vnd.ms-excel'
+        # )
 
-    st.download_button(
-        label="Download data as csv!",
-        data=csv,
-        file_name='Prediction_' + nametuple[0] + '.csv',
-        mime='text/csv',
-    )
-    df_xlsx_pred = to_excel(df_output)
-    st.download_button(label='Download data as xlsx!',
-                       data=df_xlsx_pred,
-                       file_name='Prediction_' + nametuple[0] + '.xlsx')
+        st.download_button(
+            label="Download data as csv!",
+            data=csv,
+            file_name='Prediction_' + nametuple[0] + '.csv',
+            mime='text/csv',
+        )
+        df_xlsx_pred = to_excel(df_output)
+        st.download_button(label='Download data as xlsx!',
+                           data=df_xlsx_pred,
+                           file_name='Prediction_' + nametuple[0] + '.xlsx')
 
-    st.write('Predicted values:')
-    st.dataframe(df_output)
-    col1, col2 = st.columns(2)
-    with col1:
-        plothist(df_output)
+        st.write('Predicted values:')
+        st.dataframe(df_output)
+        col1, col2 = st.columns(2)
+        with col1:
+            plothist(df_output)
 
 
