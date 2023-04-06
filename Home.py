@@ -168,7 +168,7 @@ if st.button('Preprocess data'):
     st.dataframe(comp)
 
 if st.button('Starting prediction'):
-    df_output = predict(df_comp)
+    df_output = predict(data['components'])
 
     # Add a placeholder
     latest_iteration = st.empty()
