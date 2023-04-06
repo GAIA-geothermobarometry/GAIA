@@ -170,12 +170,10 @@ if st.button('Preprocess data'):
     f'<p style="font-size:20px;border-radius:2%;">{"predictions in progress..."}</p>',
     unsafe_allow_html=True) 
     
-    # only the samples that pass the check are used
-    # components_input  = data['components'].loc(data['check']['cpx_selection'])
     
     df_output = predict(data['components'])
     
-    colcomp = data['components'].columns[4:]
+    colcomp = df_output.columns[4:]
     df_output.loc[data['checks']['cpx_selection']==False, colcomp] ='n.c.'  # not computable samples (check not passed)
     
 
