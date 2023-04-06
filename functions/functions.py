@@ -24,6 +24,15 @@ def to_excel(df):
     processed_data = output.getvalue()
     return processed_data
 
+def to_excel_multi_sheet(dic_cal):
+    output = BytesIO()
+    writer = pd.ExcelWriter(output, engine='xlsxwriter')
+    
+    for key in dic_cal:   
+        dic_cal[key].to_excel(writer, index=False, sheet_name=key)  
+    writer.save()
+    processed_data = output.getvalue()
+    return processed_data
 
 def predict(data):
     for tg in [0, 1]:
