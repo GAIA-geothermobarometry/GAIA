@@ -62,7 +62,7 @@ def predict(data):
 
         results = results * array_max[0]
 
-        df_output[index_col] = df[index_col]
+        df_output[index_col] = data[index_col]
         df_output['mean - ' + target] = results.mean(axis=1)
         df_output['std - ' + target] = results.std(axis=1)
     return df_output
