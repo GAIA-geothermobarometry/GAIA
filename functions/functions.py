@@ -49,7 +49,7 @@ def predict(data):
         
         # Add a placeholder
         latest_iteration = st.empty()
-        st.write('Predicting' + names_target)
+        st.write('Predicting ' + names_target +' ...')
         bar = st.progress(0)
         
         #load global variable          
@@ -71,8 +71,8 @@ def predict(data):
         for e in range(N):
             
             #update bar
-            latest_iteration.text(f'Iteration {e + 1}')
-            bar.progress(e + 1)
+            latest_iteration.text(f'Applying model n°{e + 1}')
+            bar.progress(int(e/N*100) + 1)
             time.sleep(0.1)
             
             #load modell
