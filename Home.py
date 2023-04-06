@@ -11,7 +11,7 @@ from PIL import Image
 import base64
 import time
 
-from preprocessing.py import *
+from preprocessing import *
 
 
 
