@@ -187,24 +187,26 @@ if st.button('Starting prediction'):
   #    file_name= 'Prediction'+nametuple[0]+'.xlsx',
   #    mime='application/vnd.ms-excel'
   #)
+  reset = 0
+  while reset = 0:
+      st.download_button(
+          label="Download data as csv!",
+          data=csv,
+          file_name= 'Prediction_'+nametuple[0]+'.csv',
+          mime='text/csv',
+      )
+      df_xlsx_pred = to_excel(df_output)
+      st.download_button(label='Download data as xlsx!',
+                                    data=df_xlsx_pred ,
+                                    file_name=  'Prediction_'+nametuple[0]+'.xlsx')
 
-  st.download_button(
-      label="Download data as csv!",
-      data=csv,
-      file_name= 'Prediction_'+nametuple[0]+'.csv',
-      mime='text/csv',
-  )
-  df_xlsx_pred = to_excel(df_output)
-  st.download_button(label='Download data as xlsx!',
-                                data=df_xlsx_pred ,
-                                file_name=  'Prediction_'+nametuple[0]+'.xlsx')
-
-  st.write('Predicted values:')
-  st.dataframe(df_output)
-  col1, col2 = st.columns(2)
-  with col1:
-        plothist(df_output)
-
+      st.write('Predicted values:')
+      st.dataframe(df_output)
+      col1, col2 = st.columns(2)
+      with col1:
+            plothist(df_output)
+      if st.button('Reset'):
+        reset = 1
   
 
 
