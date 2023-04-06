@@ -29,7 +29,6 @@ def to_excel(df):
 
 
 def predict(data):
-
     for tg in [0, 1]:
         if tg == 0:
             directory = 'Pressure_models'
@@ -148,7 +147,7 @@ st.markdown("The columns, ***SiO2***, ***TiO2***, ***Al2O3***, ***Cr2O3***,***Fe
              must be filled with the analyses.")
             
             
-df_input_sheet = pd.read_excel('files/input_sheet.xlsx', sheet_name=None)
+df_input_sheet = pd.read_excel('files/input_sheet.xlsx')
 df_input_sheet_xlsx = to_excel(df_input_sheet)
 st.download_button(label='Download the input file form', data=df_input_sheet_xlsx , file_name= 'input_sheet.xlsx')
 
