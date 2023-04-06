@@ -72,7 +72,7 @@ def predict(data):
             
             #update bar
             latest_iteration.text(f'Applying model n°{e + 1}')
-            bar.progress(int(e/(N-1)*100) + 1)
+            bar.progress(int((e + 1)/N*100)
             time.sleep(0.1)
             
             #load modell
