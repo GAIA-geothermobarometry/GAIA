@@ -145,9 +145,9 @@ st.dataframe(input_example)
 st.markdown("The columns ***Index***, ***sample***, ***notes*** and ***notes*** can be used to identify the samples.")
 st.markdown("The columns, ***SiO2***, ***TiO2***, ***Al2O3***, ***Cr2O3***,***FeO tot***,***MnO***,***NiO***, ***MgO***, ***CaO***, ***Na2O***, ***K2O*** and ***tot** \
              must be filled with the oxides analyses. If the oxide has not been analysed or is below detection limit the cell can be leave blank or set to zero. \
-             The same can be done if the total has not been calculated.
+             The same can be done if the total has not been calculated.")
             
- st.markdown("An empty file with the rigth structure can be downloaded by using the botton below.")
+st.markdown("An empty file with the rigth structure can be downloaded by using the botton below.")
             
             
 df_input_sheet = pd.read_excel('files/input_sheet.xlsx')
