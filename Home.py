@@ -166,9 +166,21 @@ if st.button('Preprocess data'):
     comp = data['components'].copy()
     comp['Sum'] = data['sum_of_components']
     st.dataframe(comp)
-
-
-    df_output = predict(data['components'])
+    st.markdown(
+    f'<p style="font-size:20px;border-radius:2%;">{"predictions in progress..."}</p>',
+    unsafe_allow_html=True) 
+    
+    # only the samples that pass the check are used
+    # components_input  = data['components'].loc(data['check']['cpx_selection'])
+    
+    df_output = predict(components_input)
+    
+    colcomp = data['components'].columns[4:]
+    df_output.loc[data['check']['cpx_selection']==False, colcomp] =0
+    
+              
+              
+    
 
     # Add a placeholder
     latest_iteration = st.empty()
@@ -179,17 +191,11 @@ if st.button('Preprocess data'):
         bar.progress(i + 1)
         time.sleep(0.1)
 
+    
+        
+        
+        
     csv = convert_df(df_output)
-    # towrite = io.BytesIO()
-    # excel = df.to_excel(towrite, encoding='utf-8', index=False, header=True)
-
-    # st.download_button(
-    #    label="Download data as xlsx",
-    #    data=excel,
-    #    file_name= 'Prediction'+nametuple[0]+'.xlsx',
-    #    mime='application/vnd.ms-excel'
-    # )
-
     st.download_button(
         label="Download data as csv!",
         data=csv,
