@@ -131,12 +131,15 @@ with col1:
     st.write(
         "A deep learning model to estimate temperatures and pressures of volcanoes starting from geochemical analysis.")
     st.write(
-        "The model is based on [cit.] and use artificial neural networks to estimate the temperature and the pressure of the magma chambers by starting from the geochemical analysis of rocks. The project was born from the collaboration between the department of Physics and Astronomy and the Department of Earth Sciences of University of Florence. Please see the info page to more information. ")
+        "The model is based on [cit.] and use artificial neural networks to estimate the temperature and the pressure of \
+        the magma chambers by starting from the geochemical analysis of rocks. The project was born from the collaboration \
+        between the department of Physics and Astronomy and the Department of Earth Sciences of University of Florence. \
+        Please see the info page to more information. ")
 with col2:
     st.image(im2, width=350)
 
 st.header("Instructions:")
-st.markdown("The structure of the file to be used as an input must be like the following:)           
+st.markdown("The structure of the file to be used as an input must be like the following:")           
 input_example =  pd.read_excel('files/input_example.xlsx')
 st.table('input_example')
 
