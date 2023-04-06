@@ -29,33 +29,40 @@ def to_excel(df):
 
 
 def predict(data):
+
     for tg in [0, 1]:
         if tg == 0:
             directory = 'Pressure_models'
         else:
             directory = 'Temperature_models'
+
         targets = ['P (kbar)', 'T (C)']
         target = targets[tg]
         names_targets = ['pressure', 'temperature']
         names_target = names_targets[tg]
+
         sect = 'only_cpx'
-        
+
         with open(directory + '/mod_' + names_target + '_' + sect + '/Global_variable.pickle', 'rb') as handle:
             g = pickle.load(handle)
         N = g['N']
         array_max = g['array_max']
+
+        col = data.columns
+        index_col = [col[i] for i in range(0, 4)]
+        df_noindex = data.drop(columns=index_col)
 
         if tg == 0:
             df_output = pd.DataFrame(
                 columns=index_col[:] + ['mean - ' + targets[0], 'std - ' + targets[0], 'mean - ' + targets[1],
                                         'std - ' + targets[1]])
 
-        results = np.zeros((len(df1), N))
+        results = np.zeros((len(df_noindex), N))
         for e in range(N):
             print(e)
             model = tf.keras.models.load_model(
                 directory + "/mod_" + names_target + '_' + sect + "/Bootstrap_model_" + str(e) + '.h5')
-            results[:, e] = model(df1.values.astype('float32')).numpy().reshape((len(df1),))
+            results[:, e] = model(df_noindex.values.astype('float32')).numpy().reshape((len(df_noindex),))
 
         results = results * array_max[0]
 
@@ -63,7 +70,6 @@ def predict(data):
         df_output['mean - ' + target] = results.mean(axis=1)
         df_output['std - ' + target] = results.std(axis=1)
     return df_output
-
 
 
 @st.cache
