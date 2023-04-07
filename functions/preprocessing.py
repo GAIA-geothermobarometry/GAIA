@@ -7,7 +7,7 @@ import pickle
 def preprocessing(df):
 
     # drop empty columns
-    df = df.dropna(axis=1, how='all')
+    #df = df.dropna(axis=1, how='all')
     df_1 = df.copy()
 
     # molecular weight
