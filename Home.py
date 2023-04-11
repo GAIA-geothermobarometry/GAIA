@@ -28,7 +28,7 @@ st.set_page_config(
 #set_png_as_page_bg('./imgs/Background.png')
 
 im2 = Image.open("logo_noBG.png")
-im3 = Image.open("GraphicalAbstract.jpg")
+im3 = Image.open("imgs/GraphicalAbstract.jpg")
 
 col1, col2 = st.columns([1.5, 1])
 with col1:
