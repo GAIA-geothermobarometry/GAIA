@@ -28,6 +28,7 @@ st.set_page_config(
 #set_png_as_page_bg('./imgs/Background.png')
 
 im2 = Image.open("logo_noBG.png")
+im3 = Image.open("GraphicalAbstract.jpg")
 
 col1, col2 = st.columns([1.5, 1])
 with col1:
@@ -42,6 +43,7 @@ with col1:
         Please see the info page to more information. ")
 with col2:
     st.image(im2, width=350)
+    st.image(im3, width=350)
 
     ## INSTRUCTION PART ##
 
