@@ -105,14 +105,14 @@ for tg in [0, 1]:
         x_test = x_test.astype('float32')
         y_test = y_test.astype('float32')
 
-        # define a NN model depending on the target, print the summary
-        mod = MakeModel(tg)
-        print(mod.summary())
-
         count = np.zeros(x_train.shape[0])
         results = np.zeros((N, x_train.shape[0]))
 
         for e in range(N):
+          
+            # define a NN model depending on the target, print the summary
+            mod = MakeModel(tg)
+            print(mod.summary())
 
             # sorting the element for the itaration of the bootstrap procedure
             x_bag_ind = np.random.choice(x_train.index, int(x_train.shape[0] * fraction _of_bagging))
