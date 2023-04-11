@@ -25,7 +25,7 @@ st.set_page_config(
     layout="wide"
 )
 
-set_png_as_page_bg('./imgs/GraphicalAbstract.jpg', 0.2)
+set_png_as_page_bg('./imgs/GraphicalAbstract.jpg', 0.02)
 
 im2 = Image.open("logo_noBG.png")
 im3 = Image.open("imgs/GraphicalAbstract.jpg")
