@@ -43,7 +43,7 @@ with col1:
         Please see the info page to more information. ")
     st.image(im3, width=350)
 with col2:
-    st.image(im2, width=350)
+    st.image(im2, width=550)
     
 
     ## INSTRUCTION PART ##
