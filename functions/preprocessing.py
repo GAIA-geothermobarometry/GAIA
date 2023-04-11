@@ -232,15 +232,16 @@ def preprocessing(df):
     df_ck['cpx_selection'] = (df_ck == True).all(axis=1)
 
     # We round the datasets to work with a suitable number of significant digits
-    df_comp = df_comp.astype('float64').round(3)
+    df_comp1 = df_comp.astype('float64').round(3)
     df_comp[['Index', 'sample', 'notes', 'notes.1']]= df_cat[['Index', 'sample', 'notes', 'notes.1']]
+    df_comp1[['Index', 'sample', 'notes', 'notes.1']]= df_cat[['Index', 'sample', 'notes', 'notes.1']]
     df_cat = df_cat.round(3)
     df_T = df_T.astype('float64').round(3)
     df_M = df_M.astype('float64').round(3)
     df_class = df_class.round(2)
 
     # the output dictionary is defined
-    output_dictionary = {'components': df_comp, 'cations': df_cat, 'checks': df_ck, 'classifications': df_class,
-                         'site_T': df_T, 'site_M1&2': df_M, 'sum_of_components': sum_comp}
+    output_dictionary = {'components': df_comp1, 'cations': df_cat, 'checks': df_ck, 'classifications': df_class,
+                         'site_T': df_T, 'site_M1&2': df_M, 'sum_of_components': sum_comp, 'input_NN': df_comp}
 
     return output_dictionary
