@@ -111,16 +111,16 @@ if st.button('Preprocess data and make predictions'):
     
 
     # create multi sheet file
-    dictionary_output = {'Predictions':df_output, 'Cations': data['cations'], 'T site': data['site_T'],\
-                         'M1 and M2 site': data['site_M1&2'],'Classifications':data['classifications'] ,\
-                         'Components': comp , 'checks': data['checks']}
-    df_summary_output_xlsx = to_excel_multi_sheet(dictionary_output)
-    
-    
-    
-    st.download_button(label='Download the output file', data=df_summary_output_xlsx , file_name= 'Prediction_' + nametuple[0] + '.xlsx')
+    #dictionary_output = {'Predictions':df_output, 'Cations': data['cations'], 'T site': data['site_T'],\
+    #                     'M1 and M2 site': data['site_M1&2'],'Classifications':data['classifications'] ,\
+    #                     'Components': comp , 'checks': data['checks']}
+    #df_summary_output_xlsx = to_excel_multi_sheet(dictionary_output)
+    #st.download_button(label='Download the output file', data=df_summary_output_xlsx , file_name= 'Prediction_' + nametuple[0] + '.xlsx')
   
-        
+  
+    empty_col = pd.DataFrame(columns=['-'])
+    out = pd.concat([df_output,empty_col,data['site_T'],empty_col,data['site_M1&2'], empty_col, data['classifications'], comp, empty_col, data['checks'] )
+       
     #csv = convert_df(df_output)
     #st.download_button(
     #    label="Download prediction as csv!",
@@ -128,10 +128,10 @@ if st.button('Preprocess data and make predictions'):
     #    file_name='Prediction_' + nametuple[0] + '.csv',
     #    mime='text/csv',
     #)                    
-    #df_xlsx_pred = to_excel(df_output)
-    #st.download_button(label='Download data as xlsx!',
-    #                   data=df_xlsx_pred,
-    #                   file_name='Prediction_' + nametuple[0] + '.xlsx')
+    df_xlsx_pred = to_excel(out)
+    st.download_button(label='Download the output file',
+                       data=df_xlsx_pred,
+                       file_name='Prediction_' + nametuple[0] + '.xlsx')
 
     
     
