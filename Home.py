@@ -25,6 +25,8 @@ st.set_page_config(
     layout="wide"
 )
 
+set_png_as_page_bg('./imgs/Background.png')
+
 im2 = Image.open("logo_noBG.png")
 
 col1, col2 = st.columns([1.5, 1])
