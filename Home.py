@@ -54,7 +54,7 @@ input_example =  pd.read_excel('files/input_example.xlsx')
 st.dataframe(input_example)
 
 st.markdown("The columns ***Index***, ***sample***, ***notes*** and ***notes*** can be used to identify the samples.\
-            The columns, ***SiO2***, ***TiO2***, ***Al2O3***, ***Cr2O3***,***FeO tot***,***MnO***,***NiO***, ***MgO***, ***CaO***, ***Na2O***, ***K2O*** and ***tot*** \
+            The columns, ***SiO2***, ***TiO2***, ***Al2O3***, ***Cr2O3***, ***FeO tot***, ***MnO***, ***NiO***, ***MgO***, ***CaO***, ***Na2O***, ***K2O*** and ***tot*** \
             must be filled with the oxides analyses. If the oxide has not been analysed or is below detection limit the corresponding cell can be leave blank or set to zero. \
             The same can be done if the total has not been calculated.")
             
@@ -115,6 +115,9 @@ if st.button('Preprocess data and make predictions'):
                          'M1 and M2 site': data['site_M1&2'],'Classifications':data['classifications'] ,\
                          'Components': comp , 'checks': data['checks']}
     df_summary_output_xlsx = to_excel_multi_sheet(dictionary_output)
+    
+    
+    
     st.download_button(label='Download the output file', data=df_summary_output_xlsx , file_name= 'Prediction_' + nametuple[0] + '.xlsx')
   
         
