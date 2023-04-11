@@ -119,7 +119,7 @@ if st.button('Preprocess data and make predictions'):
   
   
     empty_col = pd.DataFrame(columns=['-'])
-    out = pd.concat([df_output,empty_col,data['site_T'],empty_col,data['site_M1&2'], empty_col, data['classifications'], comp[comp.columns[4:]], empty_col, data['checks'] )
+    out = pd.concat([df_output,empty_col,data['site_T'],empty_col,data['site_M1&2'], empty_col, data['classifications'], comp[comp.columns[4:]], empty_col, data['checks']], axis = 1 )
        
     #csv = convert_df(df_output)
     #st.download_button(
