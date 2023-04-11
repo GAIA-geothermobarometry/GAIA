@@ -54,7 +54,7 @@ input_example =  pd.read_excel('files/input_example.xlsx')
 st.dataframe(input_example)
 
 st.markdown("The columns ***Index***, ***sample***, ***notes*** and ***notes*** can be used to identify the samples.\
-            The columns, ***SiO2***, ***TiO2***, ***Al2O3***, ***Cr2O3***, ***FeO tot***, ***MnO***, ***NiO***, ***MgO***, ***CaO***, ***Na2O***, ***K2O*** and ***tot*** \
+            The columns, ***SiO2***, ***TiO2***,  ***Al2O3***, ***Cr2O3***, ***FeO tot***, ***MnO***, ***NiO***, ***MgO***, ***CaO***, ***Na2O***, ***K2O*** and ***tot*** \
             must be filled with the oxides analyses. If the oxide has not been analysed or is below detection limit the corresponding cell can be leave blank or set to zero. \
             The same can be done if the total has not been calculated.")
             
