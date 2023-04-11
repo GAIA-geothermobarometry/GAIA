@@ -242,6 +242,6 @@ def preprocessing(df):
 
     # the output dictionary is defined
     output_dictionary = {'components': df_comp1, 'cations': df_cat, 'checks': df_ck, 'classifications': df_class,
-                         'site_T': df_T, 'site_M1&2': df_M, 'sum_of_components': sum_comp, 'input_NN': df_comp, 'major':df_ox}
+                         'site_T': df_T, 'site_M1&2': df_M, 'sum_of_components': sum_comp, 'input_NN': df_comp, 'major':df_ox.round(2)}
 
     return output_dictionary
