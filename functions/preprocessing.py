@@ -234,7 +234,7 @@ def preprocessing(df):
     # We round the datasets to work with a suitable number of significant digits
     df_comp = df_comp.astype('float64').round(3)
     df_comp[['Index', 'sample', 'notes', 'notes.1']]= df_cat[['Index', 'sample', 'notes', 'notes.1']]
-    df_cat = df_cat.round(2)
+    df_cat = df_cat.round(3)
     df_T = df_T.astype('float64').round(3)
     df_M = df_M.astype('float64').round(3)
     df_class = df_class.round(2)
