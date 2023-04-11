@@ -30,7 +30,7 @@ st.set_page_config(
 im2 = Image.open("logo_noBG.png")
 im3 = Image.open("imgs/GraphicalAbstract.jpg")
 
-col1, col2 = st.columns([1.5, 1])
+col1, col2 = st.columns([1.2, 1])
 with col1:
     st.title("GAIA")
     st.header("Geo Artificial Intelligence thermobArometry")
