@@ -36,6 +36,11 @@ def preprocessing(df):
 
     df_Fe['Fe3'][df_1['FeO tot'] >= difference] = difference
     df_Fe['Fe2'][df_1['FeO tot'] >= difference] = df_1['FeO tot'] - difference
+    
+    #  corr vr. 1.1
+    df_Fe['Fe3'][difference < 0] = 0
+    
+    
 
     #  We define a new oxide dataframe with different columns for the two Fe and
     #  we calculate the sum over all oxides (to be used in the check)
