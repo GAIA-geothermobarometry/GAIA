@@ -105,13 +105,14 @@ def get_base64(bin_file):
     return base64.b64encode(data).decode()
 
 
-def set_png_as_page_bg(png_file):
+def set_png_as_page_bg(png_file, opacity=1):
     bin_str = get_base64(png_file)
     page_bg_img = '''
     <style>
     .stApp {
     background-image: url("data:image/png;base64,%s");
     background-size: cover;
+    background-opacity:opacity;
     background-repeat: no-repeat;
     background-attachment: scroll; # doesn't work
     }
