@@ -41,7 +41,7 @@ with col1:
         the magma chambers by starting from the geochemical analysis of rocks. The project was born from the collaboration \
         between the department of Physics and Astronomy and the Department of Earth Sciences of University of Florence. \
         Please see the info page to more information. ")
-    st.image(im3, width=450)
+    #st.image(im3, width=450)
 with col2:
     st.image(im2, width=350)
     
