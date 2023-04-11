@@ -35,12 +35,10 @@ with col1:
     st.title("GAIA")
     st.header("Geo Artificial Intelligence thermobArometry")
     st.write(
-        "A deep learning model to estimate temperatures and pressures of volcanoes starting from geochemical analysis.")
+        "Deep learning artificial neural network for P-T estimates of volcano plumbing systems using clinopyroxene composition.")
     st.write(
-        "The model is based on [cit.] and use artificial neural networks to estimate the temperature and the pressure of \
-        the magma chambers by starting from the geochemical analysis of rocks. The project was born from the collaboration \
-        between the department of Physics and Astronomy and the Department of Earth Sciences of University of Florence. \
-        Please see the info page to more information. ")
+        "The project was born from the collaboration between the Department of Physics and Astronomy and the Department of Earth Sciences of the University of Firenze, \
+         Italy. See the info page for details on people who developed the app. ")
     #st.image(im3, width=450)
 with col2:
     st.image(im2, width=350)
@@ -49,14 +47,16 @@ with col2:
     ## INSTRUCTION PART ##
 
 st.header("Instructions")
-st.markdown("The structure of the file to be used as an input must be like the following:")           
+st.markdown("The structure of the file to be used as input must be like the following:")           
 input_example =  pd.read_excel('files/input_example.xlsx')
 st.dataframe(input_example)
 
-st.markdown("The columns ***Index***, ***sample***, ***notes*** and ***notes.1*** can be used to identify the samples.\
-            The columns, ***SiO2***, ***TiO2***,  ***Al2O3***, ***Cr2O3***, ***FeO tot***, ***MnO***, ***NiO***, ***MgO***, ***CaO***, ***Na2O***, ***K2O*** and ***tot*** \
-            must be filled with the oxides analyses. If the oxide has not been analysed or is below detection limit the corresponding cell can be leave blank or set to zero. \
-            The same can be done if the total has not been calculated.")
+st.markdown( "The columns ***Index***, ***sample***, ***notes*** and ***notes.1*** can be used to identify clinopyroxenes. The major element\
+            composition of clinopyroxene (wt%) must be in the indicated order \
+            (***SiO2***, ***TiO2***,  ***Al2O3***, ***Cr2O3***, ***FeO tot***, ***MnO***, ***NiO***, ***MgO***, ***CaO***, ***Na2O***, ***K2O***). \
+            Whether an oxide has not been analysed or is below detection limit input either “0” or leave it as a blank cell (not “-“ or other characters).\
+            The same applies to the last column (***total***).       
+            ")
             
 st.markdown("An empty file with the right structure can be downloaded by using the button below.")
             
