@@ -40,6 +40,7 @@ def preprocessing(df):
     #  corr vr. 1.1
     df_Fe['Fe3'][difference < 0] = 0
     df_Fe['Fe2'][difference < 0] = df_1['FeO tot']
+   
     
 
     #  We define a new oxide dataframe with different columns for the two Fe and
@@ -52,7 +53,8 @@ def preprocessing(df):
     df_ox['tot'] = df_ox[df_ox.columns[4:-1]].sum(axis=1)
 
     # We define a new dataframe for cations
-
+    
+    df_Fe = df_Fe.astype('float64')
     df_cat = pd.concat([df_1[df_1.columns[:8]], df_Fe[['Fe3', 'Fe2']], df_1[df_1.columns[9:]]], axis=1)
     old = df_cat.columns[4:-1]
     new = ['Si', 'Ti', 'Al', 'Cr', 'Fe3', 'Fe2', 'Mn', 'Ni', 'Mg', 'Ca', 'Na', 'K']
