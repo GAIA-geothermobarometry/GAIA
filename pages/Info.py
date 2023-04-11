@@ -69,7 +69,7 @@ st.header("References")
 #    st.image(im,use_column_width=True, caption='Prof. Simone Tommasini, Università degli Studi di Firenze, Dipartimento di Scienze della Terra')'''
 
 im = Image.open("imgs/tre.jpg")
-st.image(im,use_column_width=True, caption='Lorenzo Chicchi, Simone Tommasini, Duccio Fanelli  Università degli Studi di Firenze, Dipartimento di Fisica e Astrofisica, INFN e  Dipartimento di Scienze della Terra')
+st.image(im,width=500, caption='Lorenzo Chicchi, Simone Tommasini, Duccio Fanelli  Università degli Studi di Firenze, Dipartimento di Fisica e Astrofisica, INFN e  Dipartimento di Scienze della Terra')
 
 
 
