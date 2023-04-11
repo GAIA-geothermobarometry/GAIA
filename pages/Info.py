@@ -52,7 +52,7 @@ st.write('Working in progress..')
 
 
 st.header("References")
-col1, col2,col3, col4 = st.columns([1,1.45,1.5,1])
+'''col1, col2,col3, col4 = st.columns([1,1.45,1.5,1])
 
 with col1:
     im = Image.open("imgs/lorenzo.jpeg")
@@ -66,7 +66,10 @@ with col3:
     st.image(im,use_column_width=True, caption='Prof. Duccio Fanelli, Università degli Studi di Firenze, Dipartimento di Fisica e Astrofisica, INFN')
 with col4:
     im = Image.open("imgs/simone.png")
-    st.image(im,use_column_width=True, caption='Prof. Simone Tommasini, Università degli Studi di Firenze, Dipartimento di Scienze della Terra')
+    st.image(im,use_column_width=True, caption='Prof. Simone Tommasini, Università degli Studi di Firenze, Dipartimento di Scienze della Terra')'''
+
+im = Image.open("imgs/lorenzo.jpeg")
+st.image(im,use_column_width=True, caption='Lorenzo Chicchi,  Università degli Studi di Firenze, Dipartimento di Fisica e Astrofisica, INFN')
 
 
 
