@@ -39,7 +39,7 @@ def preprocessing(df):
     
     #  corr vr. 1.1
     df_Fe['Fe3'][difference < 0] = 0
-    
+    df_Fe['Fe2'][difference < 0] = df_1['FeO tot']
     
 
     #  We define a new oxide dataframe with different columns for the two Fe and
