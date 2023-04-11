@@ -55,8 +55,7 @@ st.markdown( "The columns ***Index***, ***sample***, ***notes*** and ***notes.1*
             composition of clinopyroxene (wt%) must be in the indicated order \
             (***SiO2***, ***TiO2***,  ***Al2O3***, ***Cr2O3***, ***FeO tot***, ***MnO***, ***NiO***, ***MgO***, ***CaO***, ***Na2O***, ***K2O***). \
             Whether an oxide has not been analysed or is below detection limit input either “0” or leave it as a blank cell (not “-“ or other characters).\
-            The same applies to the last column (***total***).       
-            ")
+            The same applies to the last column (***total***).")
             
 st.markdown("An empty file with the right structure can be downloaded by using the button below.")
             
