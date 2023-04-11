@@ -98,7 +98,7 @@ if st.button('Preprocess data and make predictions'):
     
     # predict and show results
     
-    df_output = predict(data['components'])   
+    df_output = predict(data['input_NN'])   
     colcomp = df_output.columns[4:]
     df_output.loc[data['checks']['cpx_selection']==False, colcomp] ='n.c.'  # not computable samples (check not passed)
     st.write('Predicted values:')
