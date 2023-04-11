@@ -41,7 +41,7 @@ def preprocessing(df):
     df_Fe['Fe3'][difference < 0] = 0
     df_Fe['Fe2'][difference < 0] = df_1['FeO tot']
    
-    
+    df_Fe = df_Fe.astype('float64')
 
     #  We define a new oxide dataframe with different columns for the two Fe and
     #  we calculate the sum over all oxides (to be used in the check)
@@ -53,8 +53,8 @@ def preprocessing(df):
     df_ox['tot'] = df_ox[df_ox.columns[4:-1]].sum(axis=1)
 
     # We define a new dataframe for cations
+   
     
-    df_Fe = df_Fe.astype('float64')
     df_cat = pd.concat([df_1[df_1.columns[:8]], df_Fe[['Fe3', 'Fe2']], df_1[df_1.columns[9:]]], axis=1)
     old = df_cat.columns[4:-1]
     new = ['Si', 'Ti', 'Al', 'Cr', 'Fe3', 'Fe2', 'Mn', 'Ni', 'Mg', 'Ca', 'Na', 'K']
@@ -242,6 +242,6 @@ def preprocessing(df):
 
     # the output dictionary is defined
     output_dictionary = {'components': df_comp1, 'cations': df_cat, 'checks': df_ck, 'classifications': df_class,
-                         'site_T': df_T, 'site_M1&2': df_M, 'sum_of_components': sum_comp, 'input_NN': df_comp}
+                         'site_T': df_T, 'site_M1&2': df_M, 'sum_of_components': sum_comp, 'input_NN': df_comp, 'major':df_ox}
 
     return output_dictionary
