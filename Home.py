@@ -140,7 +140,6 @@ if st.button('Preprocess data and make predictions'):
 
     out = pd.DataFrame(concat_df.values, columns= pd.MultiIndex.from_tuples(col_tuple), index = df.index)
     
-    st.dataframe(out[out.columns[0]])
     
     #csv = convert_df(df_output)
     #st.download_button(
