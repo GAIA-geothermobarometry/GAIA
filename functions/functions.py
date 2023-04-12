@@ -12,7 +12,7 @@ import base64
 import time
 
 
-def to_excel(df, index=False, startrow = 1):
+def to_excel(df, index=False, startrow = 0):
     output = BytesIO()
     writer = pd.ExcelWriter(output, engine='xlsxwriter')
     df.to_excel(writer, index=index, startrow=startrow, sheet_name='Sheet1')           
