@@ -137,7 +137,7 @@ if st.button('Preprocess data and make predictions'):
     empty_col = pd.DataFrame(columns=pd.MultiIndex.from_tuples([('-','-')]))
     
     out = pd.concat([new_dfs[0],empty_col,new_dfs[1],empty_col,new_dfs[2],empty_col,new_dfs[3],empty_col,new_dfs[4],empty_col,new_dfs[5],empty_col,new_dfs[6],empty_col,
-                    new_dfs[7],empty_col,new_dfs[8]],
+                    new_dfs[7]],
                      axis = 1 )
        
     #csv = convert_df(df_output)
