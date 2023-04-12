@@ -25,7 +25,6 @@ st.set_page_config(
     layout="wide"
 )
 
-#set_png_as_page_bg('./imgs/GraphicalAbstract.jpg', 0.02)
 
 im2 = Image.open("logo_noBG.png")
 im3 = Image.open("imgs/GraphicalAbstract.jpg")
@@ -39,7 +38,6 @@ with col1:
     st.write(
         "The project was born from the collaboration between the Department of Physics and Astronomy and the Department of Earth Sciences of the University of Firenze, \
          Italy. See the info page for details on people who developed the app. ")
-    #st.image(im3, width=450)
 with col2:
     st.image(im2, width=350)
     
@@ -116,7 +114,7 @@ if st.button('Preprocess data and make predictions'):
     #df_summary_output_xlsx = to_excel_multi_sheet(dictionary_output)
     #st.download_button(label='Download the output file', data=df_summary_output_xlsx , file_name= 'Prediction_' + nametuple[0] + '.xlsx')
   
-    # Add global columns label 
+    # Generate the output dataframe with multiindex columns
     
     dfs = [df_output[df_output.columns[:4]],
            df_output[df_output.columns[4:]],        
@@ -128,19 +126,10 @@ if st.button('Preprocess data and make predictions'):
            data['checks']]
     global_labels = ['Samples', 'Predictions','Major Elements', 'Site T', 'Site M1&M2', ' Classifications', ' Components', 'Checks']
     
-    new_dfs = dfs
-    #new_dfs = []
-    #for i  in range(len(dfs)):
-    #  col_tuple = [(global_labels[i], c) for c in dfs[i]]
-    #  cols = pd.MultiIndex.from_tuples(col_tuple)
-    #  new_dfs.append(pd.DataFrame(dfs[i].values, columns= pd.MultiIndex.from_tuples(col_tuple),  index = dfs[i].index))
-    
     empty_col = pd.DataFrame(columns=['-'])
     
-    concat_df = pd.concat([new_dfs[0],empty_col,new_dfs[1],empty_col,new_dfs[2],empty_col,new_dfs[3],empty_col,new_dfs[4],empty_col,new_dfs[5],empty_col,new_dfs[6],empty_col,
-                    new_dfs[7]],
-                     axis = 1 )
-       
+    concat_df = pd.concat([dfs[0],empty_col,dfs[1],empty_col,dfs[2],empty_col,dfs[3],empty_col,dfs[4],empty_col,dfs[5],empty_col,dfs[6],empty_col,  dfs[7]], axis = 1 )
+    
     bound = [[0,4],[5,9],[10,23], [24,28], [29,40], [41,46], [47,59], [60,71]]
     col_tuple = []
     for i in range(8):
@@ -149,7 +138,6 @@ if st.button('Preprocess data and make predictions'):
 
     out = pd.DataFrame(concat_df.values, columns= pd.MultiIndex.from_tuples(col_tuple), index = df.index)
     
-  
     #csv = convert_df(df_output)
     #st.download_button(
     #    label="Download prediction as csv!",
