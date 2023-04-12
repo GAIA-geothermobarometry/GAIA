@@ -145,7 +145,7 @@ if st.button('Preprocess data and make predictions'):
     #    file_name='Prediction_' + nametuple[0] + '.csv',
     #    mime='text/csv',
     #)                    
-    df_xlsx_pred = to_excel(out, index=True)
+    df_xlsx_pred = to_excel(out, index=True, index_label = list(np.arange(1,13+1)))
     st.download_button(label='Download the output file',
                        data=df_xlsx_pred,
                        file_name='Prediction_' + nametuple[0] + '.xlsx')
