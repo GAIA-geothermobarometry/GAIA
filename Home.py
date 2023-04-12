@@ -149,8 +149,7 @@ if st.button('Preprocess data and make predictions'):
 
     out = pd.DataFrame(concat_df.values, columns= pd.MultiIndex.from_tuples(col_tuple), index = df.index)
     
-    st.dataframe(out)
-      
+  
     #csv = convert_df(df_output)
     #st.download_button(
     #    label="Download prediction as csv!",
@@ -158,7 +157,7 @@ if st.button('Preprocess data and make predictions'):
     #    file_name='Prediction_' + nametuple[0] + '.csv',
     #    mime='text/csv',
     #)                    
-    df_xlsx_pred = to_excel(out)
+    df_xlsx_pred = to_excel(out, index=out.index)
     st.download_button(label='Download the output file',
                        data=df_xlsx_pred,
                        file_name='Prediction_' + nametuple[0] + '.xlsx')
