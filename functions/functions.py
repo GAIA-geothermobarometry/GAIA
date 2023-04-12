@@ -12,10 +12,10 @@ import base64
 import time
 
 
-def to_excel(df, index=False, index_label= None):
+def to_excel(df, index=False, startrow = 1):
     output = BytesIO()
     writer = pd.ExcelWriter(output, engine='xlsxwriter')
-    df.to_excel(writer, index=index, index_label= index_label, sheet_name='Sheet1')           
+    df.to_excel(writer, index=index, startrow=startrow, sheet_name='Sheet1')           
     workbook = writer.book
     worksheet = writer.sheets['Sheet1']
     format1 = workbook.add_format({'num_format': '0.00'})
