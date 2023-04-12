@@ -137,10 +137,19 @@ if st.button('Preprocess data and make predictions'):
     
     empty_col = pd.DataFrame(columns=['-'])
     
-    out = pd.concat([new_dfs[0],empty_col,new_dfs[1],empty_col,new_dfs[2],empty_col,new_dfs[3],empty_col,new_dfs[4],empty_col,new_dfs[5],empty_col,new_dfs[6],empty_col,
+    concat_df = pd.concat([new_dfs[0],empty_col,new_dfs[1],empty_col,new_dfs[2],empty_col,new_dfs[3],empty_col,new_dfs[4],empty_col,new_dfs[5],empty_col,new_dfs[6],empty_col,
                     new_dfs[7]],
                      axis = 1 )
        
+    bound = [[0,4],[5,9],[10,23], [24,28], [29,40], [41,46], [47,59], [60,71]]
+    col_tuple = []
+    for i in range(8):
+        col_tuple = col_tuple + [(global_labels[i], c) for c in concat_df.columns[bound[i][0]:bound[i][1]]] + [('-','-')]
+    col_tuple = col_tuple[:-1]
+
+    out = pd.DataFrame(concat_df.values, columns= pd.MultiIndex.from_tuples(col_tuple), index = df.index)
+
+      
     #csv = convert_df(df_output)
     #st.download_button(
     #    label="Download prediction as csv!",
