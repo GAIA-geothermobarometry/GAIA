@@ -129,7 +129,7 @@ if st.button('Preprocess data and make predictions'):
     empty_col = pd.DataFrame(columns=['-'])
     
     concat_df = pd.concat([dfs[0],empty_col,dfs[1],empty_col,dfs[2],empty_col,dfs[3],empty_col,dfs[4],empty_col,dfs[5],empty_col,dfs[6],empty_col,  dfs[7]], axis = 1 )
-    
+    st.dataframe(concat_df)
     bound = [[0,4],[5,9],[10,23], [24,28], [29,40], [41,46], [47,59], [60,71]]
     col_tuple = []
     for i in range(8):
