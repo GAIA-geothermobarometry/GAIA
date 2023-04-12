@@ -42,15 +42,10 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("Info")
-
-#st.header("GAIA")
-
+st.title("GAIA")
 
     
 st.write("The anatomy of the plumbing system of active volcanoes is fundamental to understanding how magma is stored and channeled to the surface. Reliable geothermobarometric estimates are, therefore, critical to assess the depths and temperatures of the complex system of magmatic reservoirs that form a volcano apparatus. Here, we developed a novel Machine Learning approach based upon Feedforward Neural Networks (GAIA) to estimate P-T conditions of magma storage and migration within the crust. Our Feedforward Neural Network method applied to clinopyroxene compositions yields better uncertainties (Root-Mean-Square Error and R2 score) than previous Machine Learning methods and set the basis for a novel generation of reliable geothermobarometers, which extends beyond the paradigm associated to crystal-liquid equilibrium. Also, the bootstrap procedure, inherent to the Feedforward Neural Network architecture, permits to perform a rigorous assessment of the P-T uncertainty associated to each clinopyroxene composition, as opposed to the Root-Mean-Square Error representing the P-T uncertainty of whole set of clinopyroxene compositions.")
-
-st.write("GAIA can set robust estimates of magma storage, segregation, and ascent conditions within the plumbing system of active volcanoes, helping to unravel P-T variations, if any, during their eruptive history and providing robust clues to volcanic hazard assessment.")
 
 st.header("The people")
 col1, col2,col3, col4 = st.columns([1,1.45,1.5,1])
