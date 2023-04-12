@@ -132,7 +132,7 @@ if st.button('Preprocess data and make predictions'):
     for i  in range(len(dfs)):
       col_tuple = [(global_labels[i], c) for c in dfs[i]]
       cols = pd.MultiIndex.from_tuples(col_tuple)
-      new_dfs.append(pd.DataFrame(dfs[i].values, columns= pd.MultiIndex.from_tuples(col_tuple), index = dfs[i].index)
+      new_dfs.append(pd.DataFrame(dfs[i].values, columns= pd.MultiIndex.from_tuples(col_tuple), index = dfs[i].index))
     
     empty_col = pd.DataFrame(columns=pd.MultiIndex.from_tuples([('-','-')]))
     
