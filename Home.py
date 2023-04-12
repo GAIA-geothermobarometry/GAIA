@@ -127,14 +127,15 @@ if st.button('Preprocess data and make predictions'):
            comp[comp.columns[4:]],
            data['checks']]
     global_labels = ['Samples', 'Predictions','Major Elements', 'Site T', 'Site M1&M2', ' Classifications', ' Components', 'Checks']
-    new_dfs = []
     
-    for i  in range(len(dfs)):
-      col_tuple = [(global_labels[i], c) for c in dfs[i]]
-      cols = pd.MultiIndex.from_tuples(col_tuple)
-      new_dfs.append(pd.DataFrame(dfs[i].values, columns= pd.MultiIndex.from_tuples(col_tuple), index = dfs[i].index))
+    new_dfs = dfs
+    #new_dfs = []
+    #for i  in range(len(dfs)):
+    #  col_tuple = [(global_labels[i], c) for c in dfs[i]]
+    #  cols = pd.MultiIndex.from_tuples(col_tuple)
+    #  new_dfs.append(pd.DataFrame(dfs[i].values, columns= pd.MultiIndex.from_tuples(col_tuple), index = dfs[i].index))
     
-    empty_col = pd.DataFrame(columns=pd.MultiIndex.from_tuples([('-','-')]),  index = dfs[i].index)
+    #empty_col = pd.DataFrame(columns=pd.MultiIndex.from_tuples([('-','-')]),  index = dfs[i].index)
     
     out = pd.concat([new_dfs[0],empty_col,new_dfs[1],empty_col,new_dfs[2],empty_col,new_dfs[3],empty_col,new_dfs[4],empty_col,new_dfs[5],empty_col,new_dfs[6],empty_col,
                     new_dfs[7]],
