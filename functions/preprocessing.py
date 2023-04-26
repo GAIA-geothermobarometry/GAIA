@@ -77,8 +77,8 @@ def preprocessing(df):
     df_T['Ti'][df_T['Si'] + df_T['Al'] + df_cat['Ti'] >= 2] = 2 - (df_T['Si'] + df_T['Al'])
     df_T['Ti'][df_T['Si'] + df_T['Al'] >= 2] = 0
     df_T['Ti'][df_T['Si'] + df_T['Al'] + df_cat['Ti'] < 2] = df_cat['Ti']
-    df_T['Fe3'][df_T['Si'] + df_T['Al'] + df_T['Ti'] + df_cat['Ti'] >= 2] = 2 - (df_T['Si'] + df_T['Al'] + df_T['Ti'])
-    df_T['Fe3'][df_T['Si'] + df_T['Al'] + df_T['Ti'] + df_cat['Ti'] < 2] = df_cat['Fe3']
+    df_T['Fe3'][df_T['Si'] + df_T['Al'] + df_T['Ti'] + df_cat['Fe3'] >= 2] = 2 - (df_T['Si'] + df_T['Al'] + df_T['Ti'])
+    df_T['Fe3'][df_T['Si'] + df_T['Al'] + df_T['Ti'] + df_cat['Fe3'] < 2] = df_cat['Fe3']
     df_T['Fe3'][df_T['Si'] + df_T['Al'] + df_T['Ti'] >= 2] = 0
 
     df_M = df_cat[df_M.columns]
