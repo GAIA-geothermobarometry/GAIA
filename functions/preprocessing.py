@@ -208,7 +208,10 @@ def preprocessing(df):
 
     M['Ni'] = M['Ni'] - (2 * df_comp[colcomp[9]] - Mg_old)
     M['Mn'] = M['Mn'] - (2 * df_comp[colcomp[10]] - Fe2_old)
-
+    
+    
+    print(df_comp)
+    
     sum_comp = df_comp.sum(axis=1).round(3)
 
     # we define and evaluate the checks
