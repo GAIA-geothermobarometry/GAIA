@@ -4,3 +4,4 @@ pandas
 openpyxl
 pyxlsb
 xlsxwriter
+inotify
