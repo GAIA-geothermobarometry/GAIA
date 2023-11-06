@@ -1,6 +1,6 @@
 tensorflow
 matplotlib
-pandas
+pandas==1.5
 openpyxl
 pyxlsb
 xlsxwriter
