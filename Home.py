@@ -31,6 +31,7 @@ im3 = Image.open("imgs/GraphicalAbstract.jpg")
 
 col1, col2 = st.columns([1.2, 1])
 with col1:
+    st.warning('App momentarily out of service. Rrepair in progress. Sorry for the inconvenience', icon="⚠️")
     st.title("GAIA")
     st.header("Geo Artificial Intelligence thermobArometry")
     st.write(
