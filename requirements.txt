@@ -5,3 +5,4 @@ openpyxl
 pyxlsb
 xlsxwriter
 inotify
+pickle-compact
