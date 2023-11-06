@@ -45,6 +45,7 @@ with col2:
 
     ## INSTRUCTION PART ##
 
+st.warning('App momentarily out of service. Rrepair in progress. Sorry for the inconvenience', icon="⚠️")
 st.header("Instructions")
 st.markdown("The structure of the file to be used as input must be like the following:")           
 input_example =  pd.read_excel('files/input_example.xlsx')
@@ -65,7 +66,8 @@ st.download_button(label='Download the input file form', data=df_input_sheet_xls
 
 
     ## PROCESSING PART ##
-    
+
+st.warning('App momentarily out of service. Rrepair in progress. Sorry for the inconvenience', icon="⚠️")   
 st.header("Processing")
 
 st.markdown("Upload a file with the structure as specified above:")
