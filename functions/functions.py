@@ -56,7 +56,7 @@ def predict(data):
         with open(directory + '/mod_' + names_target + '_' + sect + '/Global_variable.pickle', 'rb') as handle:
             #g = pickle.load(handle)
             #g = pd.read_pickle(handle)
-            g = pd.compat.pickle_compat.load(hande)
+            g = pd.compat.pickle_compat.load(handle)
         N = g['N']
         array_max = g['array_max']
 
