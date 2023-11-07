@@ -39,11 +39,11 @@ def predict(data):
         if tg == 0:
             directory = 'Pressure_models'
             N = 100
-            array_max = 10.0
+            array_max = [10.0]
         else:
             directory = 'Temperature_models'
             N = 20
-            array_max = 1400.0
+            array_max = [1400.0]
 
         targets = ['P (kbar)', 'T (C)']
         target = targets[tg]
