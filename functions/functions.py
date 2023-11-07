@@ -38,8 +38,12 @@ def predict(data):
     for tg in [0, 1]:
         if tg == 0:
             directory = 'Pressure_models'
+            N = 100
+            array_max = 10.0
         else:
             directory = 'Temperature_models'
+            N = 20
+            array_max = 1400.0
 
         targets = ['P (kbar)', 'T (C)']
         target = targets[tg]
@@ -53,11 +57,11 @@ def predict(data):
         bar = st.progress(0)
         
         #load global variable          
-        with open(directory + '/mod_' + names_target + '_' + sect + '/Global_variable.pickle', 'rb') as handle:
-            g = pickle.load(handle)
+        #with open(directory + '/mod_' + names_target + '_' + sect + '/Global_variable.pickle', 'rb') as handle:
+            #g = pickle.load(handle)
             #g = pd.read_pickle(handle)
-        N = g['N']
-        array_max = g['array_max']
+        #N = g['N']
+        #array_max = g['array_max']
 
         col = data.columns
         index_col = [col[i] for i in range(0, 4)]
