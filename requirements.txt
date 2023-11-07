@@ -1,8 +1,7 @@
 tensorflow
 matplotlib
-pandas==1.5
+pandas==1.3.0
 openpyxl
 pyxlsb
 xlsxwriter
 inotify
-
