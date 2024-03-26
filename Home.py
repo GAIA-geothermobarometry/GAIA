@@ -14,8 +14,6 @@ import time
 from functions.preprocessing import *
 from functions.functions import *
 
-os.environ('PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python')
-
   ## GENERAL SETTINGS AND HEADER   ###
 
 im = Image.open("logo_noBG.png")
