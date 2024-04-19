@@ -15,7 +15,6 @@ import time
 def libversions():
     return ['tensorflow', tf.__version__,
             'numpy', np.__version__,
-            'pyxlsb', pyxlsb.__version__,
             'pickle', pickle.__version__,
             'matplotlib', matplotlib.__version__,
             'xlsxwriter', xlsxwriter.__version__,
