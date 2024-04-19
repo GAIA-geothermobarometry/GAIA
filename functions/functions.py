@@ -5,10 +5,14 @@ import matplotlib.pyplot as plt
 from pyxlsb import open_workbook as open_xlsb
 import tensorflow as tf
 import pickle
+
+import pyxlsb
+import openpyxl
 import matplotlib
 import xlsxwriter
 import inotify
 import os
+
 from io import BytesIO
 from PIL import Image
 import base64
@@ -22,7 +26,9 @@ def libversions():
             'matplotlib', matplotlib.__version__,
             'xlsxwriter', xlsxwriter.__version__,
             'inotify', inotify.__version__,
-            'pandas', pd.__version__]
+            'pandas', pd.__version__,
+            'openpyxl', openpyxl.__version__,
+            'pyxlsb', pyxlsb.__version__]
 
 
 def to_excel(df, index=False, startrow = 0):
