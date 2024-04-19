@@ -15,11 +15,11 @@ import time
 def libversions():
     return ['tensorflow', tf.__version__,
             'numpy', np.__version__,
-            'pickle', pickle.__version__,
+            'pickle', pickle.format_version,
             'matplotlib', matplotlib.__version__,
             'xlsxwriter', xlsxwriter.__version__,
             'inotify', inotify.__version__,
-            'pandas', pandas.format_version]
+            'pandas', pandas.__version__]
 
 
 def to_excel(df, index=False, startrow = 0):
