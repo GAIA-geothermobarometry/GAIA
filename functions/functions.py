@@ -19,7 +19,7 @@ def libversions():
             'matplotlib', matplotlib.__version__,
             'xlsxwriter', xlsxwriter.__version__,
             'inotify', inotify.__version__,
-            'pandas', pandas.__version__]
+            'pandas', pandas.format_version]
 
 
 def to_excel(df, index=False, startrow = 0):
