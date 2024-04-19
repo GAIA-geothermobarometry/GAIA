@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from pyxlsb import open_workbook as open_xlsb
 import tensorflow as tf
 import pickle
+import matplotlib
 import os
 from io import BytesIO
 from PIL import Image
