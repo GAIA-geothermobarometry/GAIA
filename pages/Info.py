@@ -6,6 +6,7 @@ import openpyxl
 import streamlit as st
 from PIL import Image
 import webbrowser
+from functions.functions import *
 
 
 def to_excel_multi_sheet(dic_cal):
