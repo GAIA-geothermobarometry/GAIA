@@ -70,5 +70,5 @@ with col4:
     im = Image.open("imgs/simone.png")
     st.image(im,use_column_width=True, caption='Prof. Simone Tommasini, Università degli Studi di Firenze, Dipartimento di Scienze della Terra')
 
-
+st.write(str(libversions())))
 
