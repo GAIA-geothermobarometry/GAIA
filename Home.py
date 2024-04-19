@@ -16,8 +16,6 @@ from functions.functions import *
 
   ## GENERAL SETTINGS AND HEADER   ###
 
-print(libversions())
-
 im = Image.open("logo_noBG.png")
 
 st.set_page_config(
