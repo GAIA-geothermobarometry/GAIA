@@ -105,6 +105,10 @@ for tg in [0, 1]:
         x_test = x_test.astype('float32')
         y_test = y_test.astype('float32')
 
+        x_train['ascending_index'] = list(np.arange(0, x_train.shape[0]))
+        ascending_index = x_train['ascending_index']
+        x_train = x_train.drop(columns=['ascending_index'])
+
         count = np.zeros(x_train.shape[0])
         results = np.zeros((N, x_train.shape[0]))
 
