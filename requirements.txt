@@ -6,3 +6,4 @@ openpyxl
 pyxlsb
 xlsxwriter
 watchdog
+inotify
