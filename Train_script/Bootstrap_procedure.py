@@ -23,7 +23,7 @@ def MakeModel(tg):
     mod.add(tf.keras.layers.Dropout(0.1))
     mod.add(tf.keras.layers.Dense(100, activation='relu'))
     mod.add(tf.keras.layers.Dense(100, activation='relu'))
-    mod.add(tf.keras.layers.Dense(1, activation='linear'))7
+    mod.add(tf.keras.layers.Dense(1, activation='linear'))
   return mod
 
 
