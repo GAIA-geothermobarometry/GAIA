@@ -13,4 +13,4 @@ A web App has been developed to make it easy to use our new model (https://gaia-
 
 
 #### References
-[In publ.]
+Chicchi, Lorenzo, et al. "Frontiers of thermobarometry: GAIA, a novel deep learning-based tool for volcano plumbing systems." Earth and Planetary Science Letters 620 (2023): 118352.
