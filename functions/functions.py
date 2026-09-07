@@ -117,7 +117,7 @@ def predict(data):
     return df_output
 
 
-@st.cache
+@st.cache_resource
 def convert_df(df):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
     return df.to_csv().encode('utf-8')
